@@ -11,3 +11,25 @@ require "sinatra/reloader"
 get("/") do
   erb(:layout)
 end
+
+get("/rock") do
+
+    play = [rock, paper, scissors]
+    their_play = play.sample
+
+    
+
+    if their_play == "rock"
+      pp "We played rock!"
+      pp "They played #{their_play}!"
+      pp "We tied!"
+    elsif their_play == "paper"
+      pp "We played rock!"
+      pp "They played #{their_play}!"
+      pp "We lost!"
+    else
+      pp "We played rock!"
+      pp "They played #{their_play}!"
+      pp "We won!"
+    end
+end
