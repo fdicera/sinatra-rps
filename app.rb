@@ -9,27 +9,22 @@ require "sinatra/reloader"
 #end
 
 get("/") do
-  erb(:layout)
+  # inserts rules into layout, layout runs automatically
+  erb(:rules)
 end
 
 get("/rock") do
+  play = ["rock", "paper", "scissors"]
+  @their_play = play.sample
 
-    play = [rock, paper, scissors]
-    their_play = play.sample
-
-    
-
-    if their_play == "rock"
-      pp "We played rock!"
-      pp "They played #{their_play}!"
-      pp "We tied!"
-    elsif their_play == "paper"
-      pp "We played rock!"
-      pp "They played #{their_play}!"
-      pp "We lost!"
+    if @their_play == "rock"
+      @result = "We tied!"
+  
+    elsif @their_play == "paper"
+      @result = "We lost!"
     else
-      pp "We played rock!"
-      pp "They played #{their_play}!"
-      pp "We won!"
+      @result = "We won!"
     end
+
+  erb(:rock)
 end
