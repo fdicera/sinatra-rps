@@ -28,3 +28,35 @@ get("/rock") do
 
   erb(:rock)
 end
+
+get("/paper") do
+  play = ["rock", "paper", "scissors"]
+  @their_play = play.sample
+
+    if @their_play == "rock"
+      @result = "We won!"
+  
+    elsif @their_play == "paper"
+      @result = "We tied!"
+    else
+      @result = "We lost!"
+    end
+
+  erb(:paper)
+end
+
+get("/scissors") do
+  play = ["rock", "paper", "scissors"]
+  @their_play = play.sample
+
+    if @their_play == "rock"
+      @result = "We lost!"
+  
+    elsif @their_play == "paper"
+      @result = "We won!"
+    else
+      @result = "We tied!"
+    end
+
+  erb(:scissors)
+end
